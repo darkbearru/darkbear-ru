@@ -1,23 +1,27 @@
 <template>
     <main data-scroll-section>
-        <MainNav :menuItems="menuItems" />
+
+        <header>
+            <Title title="Абраменко Алексей" />
+            <MainNav :menuItems="menuItems" />
+        </header>
 
         <img v-if="isShowPreview" src="@/assets/img/my-photo-px16.jpg" class="my-photo size-preview" />
-        <img src="@/assets/img/my-photo.jpg" class="my-photo size-full" id="darkbear-photo" />
+        <img src="" class="my-photo size-full" id="darkbear-photo" />
     </main>
 </template>
 
 <script>
 import MainNav from "@/components/UI/MainNav";
+import Title from "@/components/decoration/Title";
 
 export default {
     components: {
-        MainNav
+        MainNav,
+        Title
     },
     props: {
-        photoLoaded: {
-            type: Boolean
-        },
+        photoLoaded: Boolean | String,
         menuItems: {
             type: Array,
             required: true
@@ -35,10 +39,13 @@ export default {
          * Показываем большое фото после того как оно подгрузится
          */
         photoLoaded (newValue, oldValue) {
-            if (newValue !== true) return false;
+            if (!newValue) return false;
 
             let _pic = document.querySelector('#darkbear-photo');
-            if (_pic) _pic.classList.add("is-loaded");
+            if (_pic) {
+                _pic.src = newValue;
+                _pic.classList.add("is-loaded");
+            }
 
             // Через 3 секунды отрубаем фото плохого качества
             setTimeout(() => {

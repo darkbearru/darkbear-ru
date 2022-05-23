@@ -1,5 +1,5 @@
 <template>
-    <MainView :photoLoaded="isBigPhotoLoaded" :menuItems="menuItems" />
+    <MainView :photoLoaded="BigPhotoLoaded" :menuItems="menuItems" />
     <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -28,7 +28,7 @@ const github = new GithubData("https://api.github.com/users/darkbearru/repos", (
     console.log("Github loaded");
     console.log(data);
 });
-const img = new ImgData("@/assets/img/my-photo.jpg", (data) => {
+const img = new ImgData(require("@/assets/img/my-photo.jpg"), (data) => {
 });
 
 const loader = new ContentLoader();
@@ -40,7 +40,7 @@ export default {
     },
     data () {
         return {
-            isBigPhotoLoaded: false,
+            BigPhotoLoaded: false,
             scroll: null,
             items: [
                 { title: "Заголовок", speed: 1 }
@@ -66,7 +66,7 @@ export default {
         loader.Add(github);
         img.callBack = data => {
             console.log(data);
-            this.isBigPhotoLoaded = true
+            this.BigPhotoLoaded = data.query.url;
         }
         loader.Add(img);
         loader.Run();
