@@ -1,51 +1,29 @@
-# darkbear-ru
+# Darkbear.Ru
 
-This personal site for portfolio presentation and learning VueJs and Typescript.
+Персональный сайт / портфолио. Для изучения за основу взяты Vue и Typescript.
 
+## Структура проекта
 
-## Some info for future problems
-
-### Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-### Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-### Project Setup
-
-```sh
-npm install
-```
-
-#### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-#### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-#### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-#### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+1. **App**
+    - Main
+        - Main nav
+            - Nav Item
+        - Content loader -> Передаётся Класс контента который уже загружает, обрабатывает и возвращает нужное
+        - Current Projects
+            - Project
+    - About
+        - Inner nav
+            - Nav Item
+        - Just work
+        - Just life
+        - Content Loader
+    - Portfolio
+        - Inner nav
+            - Nav Item
+        - Projects
+            - Project
+        - Content Loader
+    - Resume
+        - Inner nav
+            - Nav Item
+        - Content Loader
