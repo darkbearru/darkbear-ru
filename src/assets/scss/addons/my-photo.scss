@@ -1,0 +1,54 @@
+.my-photo {
+    position: fixed;
+    bottom: 0px;
+    width: clamp(500px, 120%, 700px);
+    height: auto;
+    right: -250px;
+    transition: width 1s .5s;
+    &.size-preview{
+        z-index: 1;
+    }
+    &.size-full{
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 2s .5s;
+        z-index: 2;
+        &.is-loaded{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+@media (min-height: 350px) and (orientation: landscape) {
+    .my-photo {
+        width: 400px;
+        bottom: -50px;
+        right: -100px;
+    }
+}
+
+@media (min-width: 650px) and (min-height: 600px) and (orientation: landscape) {
+    .my-photo {
+        width: clamp(500px, 120%, 700px);
+        right: -250px;
+        bottom: 0px;
+        ;
+    }
+}
+
+@media (min-width: 900px) and (min-height: 750px) and (orientation: landscape) {
+    .my-photo {
+        width: clamp(700px, 120%, 900px);
+        right: -250px;
+        bottom: 0px;
+    }
+}
+
+@media (min-width: 1200px) and (min-height: 1000px) and (orientation: landscape) {
+    .my-photo {
+        width: clamp(900px, 120%, 1146px);
+        right: -250px;
+        bottom: 0px;
+    }
+}
