@@ -1,5 +1,5 @@
 <template>
-    <MainView :photoLoaded="isBigPhotoLoaded" />
+    <MainView :photoLoaded="isBigPhotoLoaded" :menuItems="menuItems" />
     <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -26,7 +26,7 @@ import MainView from "@/views/MainView";
 
 const github = new GithubData("https://api.github.com/users/darkbearru/repos", (data) => {
     console.log("Github loaded");
-    //console.log(data);
+    console.log(data);
 });
 const img = new ImgData("@/assets/img/my-photo.jpg", (data) => {
 });
@@ -44,6 +44,20 @@ export default {
             scroll: null,
             items: [
                 { title: "Заголовок", speed: 1 }
+            ],
+            menuItems: [
+                {
+                    url: "/about/",
+                    name: "Обо мне"
+                },
+                {
+                    url: "/portfolio/",
+                    name: "Портфолио"
+                },
+                {
+                    url: "/cv/",
+                    name: "Резюме"
+                }
             ]
         }
     },
