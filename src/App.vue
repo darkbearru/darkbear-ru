@@ -1,5 +1,5 @@
 <template>
-    <MainView />
+    <MainView :photoLoaded="isBigPhotoLoaded" />
     <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -28,9 +28,7 @@ const github = new GithubData("https://api.github.com/users/darkbearru/repos", (
     console.log("Github loaded");
     //console.log(data);
 });
-const img = new ImgData("https://funart.pro/uploads/posts/2021-04/1617416027_13-p-oboi-atlanticheskii-okean-i-tikhii-okean-13.jpg", (data) => {
-    console.log("Img loaded");
-    console.log(data);
+const img = new ImgData("@/assets/img/my-photo.jpg", (data) => {
 });
 
 const loader = new ContentLoader();
@@ -42,6 +40,7 @@ export default {
     },
     data () {
         return {
+            isBigPhotoLoaded: false,
             scroll: null,
             items: [
                 { title: "Заголовок", speed: 1 }
@@ -51,12 +50,12 @@ export default {
     mounted () {
         const _self = this;
         loader.Add(github);
+        img.callBack = data => {
+            console.log(data);
+            this.isBigPhotoLoaded = true
+        }
         loader.Add(img);
         loader.Run();
-        console.log("Run");
-        for (let i = 0; i < 10; i++) {
-            console.log(`I: ${i}`);
-        }
         /*
         this.$nextTick(function () {
             _self.initLocoScroll();
@@ -88,31 +87,4 @@ body {
     font-weight: 400;
     -moz-osx-font-smoothing: grayscale;
 }
-
-/*
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-
-[data-scroll-section] {
-    height: 100vh;
-}
-
-nav {
-    padding: 30px;
-}
-
-nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-    color: #42b983;
-}
-*/
 </style>
