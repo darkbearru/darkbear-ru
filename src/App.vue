@@ -3,8 +3,8 @@
     <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/> -->
+  </nav> -->
+    <router-view />
 
     <!-- <div data-scroll-container>
         <ScrollSection :items="items" />
@@ -46,6 +46,10 @@ export default {
                 { title: "Заголовок", speed: 1 }
             ],
             menuItems: [
+                {
+                    url: "/",
+                    name: "home"
+                },
                 {
                     url: "/about/",
                     name: "Обо мне"

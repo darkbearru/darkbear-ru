@@ -4,16 +4,16 @@ import {
 } from "@/components/content-loader/content-data";
 
 class ContentLoader {
-	private queue: IContentData[] = [];
+	private _queue: IContentData[] = [];
 
 	constructor() {}
 
 	public Add(data: IContentData): void {
-		this.queue.push(data);
+		this._queue.push(data);
 	}
 
 	public Run(): boolean {
-		const query: IContentData | undefined = this.queue.pop();
+		const query: IContentData | undefined = this._queue.pop();
 		if (!query) return false;
 
 		this[query.type === TContentType.IMG ? "imgQuery" : "jsonQuery"](query)

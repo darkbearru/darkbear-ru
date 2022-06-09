@@ -1,7 +1,7 @@
 <template>
-    <div class="main-nav">
+    <nav class="main-nav">
         <NavItem v-for="item in menuItems" :item="item" />
-    </div>
+    </nav>
 </template>
 
 <script>
