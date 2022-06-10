@@ -1,29 +1,29 @@
-# Darkbear.Ru
+# .
 
-Персональный сайт / портфолио. Для изучения за основу взяты Vue и Typescript.
+This template should help get you started developing with Vue 3 in Vite.
 
-## Структура проекта
+## Recommended IDE Setup
 
-1. **App**
-    - Main
-        - Main nav
-            - Nav Item
-        - Content loader -> Передаётся Класс контента который уже загружает, обрабатывает и возвращает нужное
-        - Current Projects
-            - Project
-    - About
-        - Inner nav
-            - Nav Item
-        - Just work
-        - Just life
-        - Content Loader
-    - Portfolio
-        - Inner nav
-            - Nav Item
-        - Projects
-            - Project
-        - Content Loader
-    - Resume
-        - Inner nav
-            - Nav Item
-        - Content Loader
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
